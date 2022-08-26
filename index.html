@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru" ng-app = "app">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./node_modules/angular/angular.js"></script>
+    <script src="./app.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <title>Square</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <div class="row" ng-controller="appController as triangle" style="height: 95vh; max-height: 100vh;"> 
+        <div class="row mx-0 pt-3 my-auto justify-content-center" >
+            <div class="col-lg-4 col-sm px-0 align-items-center">
+                <div class="row mx-0">
+                    <div class="input-group mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">a</span><input class="form-control" type="number" min="0" ng-model="triangle._a" ng-change="triangle.update()">
+                    </div>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">b</span><input class="form-control" type="number" min="0" ng-model="triangle._b" ng-change="triangle.update()">
+                    </div>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">c</span><input class="form-control" type="number" min="0" ng-model="triangle._c" ng-change="triangle.update()">
+                    </div>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Площадь</span><input class="form-control" disabled type="text" ng-model="triangle.square" ng-change="triangle.update()">
+                    </div>
+                </div>
+                <div class="row mx-0 mt-2 px-2">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <g ng-if="triangle.isExists" class="animate-if">
+                            <line x1="50" y1="50" x2="{{50+triangle.scale(triangle.a)}}" y2="50" stroke="black" />
+                            <line x1="50" y1="50" x2="{{50+triangle.scale(triangle.bWidth)}}" y2="{{50-triangle.scale(triangle.bHeight)}}" stroke="red" />
+                            <line x1="{{50+triangle.scale(triangle.a)}}" y1="50" x2="{{50+triangle.scale(triangle.bWidth)}}" y2="{{50-triangle.scale(triangle.bHeight)}}" stroke="gray" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
